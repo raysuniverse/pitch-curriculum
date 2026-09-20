@@ -1,0 +1,215 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Geoff — Pitch Curriculum</title>
+<style>
+:root{--ink:#202124;--muted:#5F6368;--line:#DADCE0;--blue:#4285F4;--red:#EA4335;
+      --green:#34A853;--amber:#FA7B17;--purple:#A142F4}
+*{box-sizing:border-box}
+body{font-family:'Google Sans',system-ui,-apple-system,Roboto,sans-serif;color:var(--ink);
+     margin:0;background:#fff}
+.wrap{max-width:1040px;margin:0 auto;padding:56px 32px 40px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;
+         color:var(--blue);margin-bottom:10px}
+h1{font-size:40px;font-weight:600;margin:0 0 12px;letter-spacing:-.5px}
+.sub{color:var(--muted);font-size:15.5px;line-height:1.6;max-width:64ch;margin-bottom:22px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.pill{font-size:12px;font-weight:600;border-radius:100px;padding:6px 14px}
+.pill.b{background:#E8F0FE;color:#1A56C4}.pill.r{background:#FEE8E6;color:#C5221F}
+.pill.g{background:#E6F4EA;color:#188038}.pill.p{background:#F3E8FD;color:#7B2BC9}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:44px}
+a.card{border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;
+       color:var(--ink);background:#fff;transition:box-shadow .2s,transform .2s;display:block}
+a.card:hover{box-shadow:0 6px 20px rgba(60,64,67,.16);transform:translateY(-2px)}
+.demo{height:150px;background:#F8F9FA;border-bottom:1px solid #F1F3F4;position:relative;
+      display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cbody{padding:16px 18px 18px}
+.cbody b{font-size:16.5px;display:block;margin-bottom:6px}
+.cbody span{font-size:13px;color:var(--muted);line-height:1.55;display:block;margin-bottom:10px}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:600;border-radius:100px;padding:3px 10px}
+/* demo 1: performer wave + learner line growing to match */
+.d1 svg{width:82%;height:110px}
+.d1 .perf{stroke:var(--purple);stroke-width:2.5;fill:none}
+.d1 .learn{stroke:var(--blue);stroke-width:2.5;fill:none;transform-origin:50% 55px;
+           animation:grow 7s ease-in-out infinite}
+@keyframes grow{0%,12%{transform:scaleY(.08)}45%,72%{transform:scaleY(1)}
+                92%,100%{transform:scaleY(.08)}}
+/* demo 2: nine mini patterns pulsing in sequence */
+.d2{display:grid;grid-template-columns:repeat(3,58px);gap:10px 14px}
+.d2 svg{width:58px;height:30px;opacity:.28;animation:pulse 9s infinite}
+.d2 svg path{stroke:var(--red);stroke-width:3;fill:none;stroke-linecap:round}
+.d2 svg:nth-child(2){animation-delay:1s}.d2 svg:nth-child(3){animation-delay:2s}
+.d2 svg:nth-child(4){animation-delay:3s}.d2 svg:nth-child(5){animation-delay:4s}
+.d2 svg:nth-child(6){animation-delay:5s}.d2 svg:nth-child(7){animation-delay:6s}
+.d2 svg:nth-child(8){animation-delay:7s}.d2 svg:nth-child(9){animation-delay:8s}
+@keyframes pulse{0%,8%{opacity:1;transform:scale(1.12)}14%,100%{opacity:.28;transform:scale(1)}}
+/* demo 3: words settling onto their pitch heights */
+.d3{font-weight:700;font-size:16px;display:flex;gap:8px;align-items:center}
+.d3 span{display:inline-block;animation:settle 6.5s ease-in-out infinite}
+@keyframes settle{0%,10%{transform:translateY(0);color:#9AA0A6}
+  28%,78%{transform:translateY(var(--y));color:var(--c)}
+  95%,100%{transform:translateY(0);color:#9AA0A6}}
+/* steps */
+h2{font-size:20px;font-weight:600;margin:0 0 14px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:40px}
+.step{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff}
+.step .n{width:26px;height:26px;border-radius:50%;color:#fff;font-size:13px;font-weight:700;
+         display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.step b{font-size:13.5px;display:block;margin-bottom:3px}
+.step span{font-size:12px;color:var(--muted);line-height:1.5}
+.legend{border:1px solid var(--line);border-radius:16px;background:#F8F9FA;padding:16px 20px;
+        font-size:13px;color:#3C4043;line-height:1.7;max-width:100%}
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-bottom:8px}
+.term{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px 16px}
+.term>b{font-size:13.5px;display:block;margin-bottom:5px}
+.term>span{font-size:12.5px;color:#3C4043;line-height:1.6;display:block}
+.term .ex{background:#F8F9FA;border-radius:10px;padding:9px 12px;margin-top:9px;
+          font-size:12.5px;color:#3C4043;line-height:1.7}
+.term .ex i{color:var(--muted)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:-1px}
+.foot{color:#9AA0A6;font-size:12px;margin-top:34px;border-top:1px solid #F1F3F4;padding-top:16px}
+</style>
+<div class="wrap">
+<div class="eyebrow">American English · Pitch &amp; Melody</div>
+<h1>Geoff — Pitch Curriculum</h1>
+<div class="sub">Interactive study materials built from Geoff's pitch workshops and
+coaching sessions. Every clip is playable and loopable, and every sentence is
+drawn as a melody — the words themselves rise, fall, and change color with the
+pitch, so you can <b>see the shape while you hear it</b>.</div>
+<div class="pills"><span class="pill b">508 playable clips</span>
+<span class="pill r">14 performer models</span>
+<span class="pill g">9 pitch patterns</span>
+<span class="pill p">393 coaching sentences</span></div>
+
+<div class="grid">
+<a class="card" href="geoff-study.html">
+ <div class="demo"><div class="d3">
+  <span style="--y:6px;--c:#1A56C4;animation-delay:.0s">Because</span>
+  <span style="--y:-14px;--c:#EA4335;animation-delay:.15s">contrast</span>
+  <span style="--y:2px;--c:#5F6368;animation-delay:.3s">gives</span>
+  <span style="--y:8px;--c:#1A56C4;animation-delay:.45s">it</span>
+  <span style="--y:-6px;--c:#EA4335;animation-delay:.6s">shape.</span>
+ </div></div>
+ <div class="cbody"><i style="font-size:10.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;font-style:normal;color:#1A56C4;background:#E8F0FE;border-radius:100px;padding:2px 9px;display:inline-block;margin-bottom:7px">from the coaching sessions</i><b>Geoff — sentence study</b>
+ <span>393 coaching sentences, playable, with the melody drawn on the words and
+ the hill/floor of each sentence named. Sort by sweep, pace, ending, or range.</span>
+ <div class="tags"><span class="tag" style="background:#E8F0FE;color:#1A56C4">pitch-drawn text</span>
+ <span class="tag" style="background:#E6F4EA;color:#188038">sortable</span>
+ <span class="tag" style="background:#F3E8FD;color:#7B2BC9">hill &amp; floor</span></div></div></a>
+
+<a class="card" href="geoff-workshop.html">
+ <div class="demo d1"><svg viewBox="0 0 260 110">
+   <path class="perf" d="M10 55 Q 30 15 50 55 T 90 55 Q 110 95 130 55 T 170 55 Q 190 10 210 55 T 250 55"/>
+   <path class="learn" d="M10 55 Q 30 15 50 55 T 90 55 Q 110 95 130 55 T 170 55 Q 190 10 210 55 T 250 55"/>
+ </svg></div>
+ <div class="cbody"><i style="font-size:10.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;font-style:normal;color:#7B2BC9;background:#F3E8FD;border-radius:100px;padding:2px 9px;display:inline-block;margin-bottom:7px">from the workshop</i><b>Pro Pitch Mastery — clips &amp; shadows</b>
+ <span>14 performer clips from the workshop, each paired with Geoff's own demos.
+ Shadow the performer, then hear how Geoff transforms it.</span>
+ <div class="tags"><span class="tag" style="background:#F3E8FD;color:#7B2BC9">performers</span>
+ <span class="tag" style="background:#FEE8E6;color:#C5221F">geoff demos</span>
+ <span class="tag" style="background:#E8F0FE;color:#1A56C4">shadowing</span></div></div></a>
+
+<a class="card" href="geoff-apprenticeship.html">
+ <div class="demo"><div class="d2">
+  <svg viewBox="0 0 58 30"><path d="M4 8 L18 12 L32 18 L54 26"/></svg>
+  <svg viewBox="0 0 58 30"><path d="M4 8 Q 22 26 34 22 L54 8"/></svg>
+  <svg viewBox="0 0 58 30"><path d="M6 18 L22 10 L38 22 L52 6"/></svg>
+  <svg viewBox="0 0 58 30"><path d="M4 22 L26 18 L54 6"/></svg>
+  <svg viewBox="0 0 58 30"><path d="M6 10 L26 10 M6 20 L26 20 M34 10 L54 10"/></svg>
+  <svg viewBox="0 0 58 30"><path d="M4 8 L20 20 L38 18 L54 6"/></svg>
+  <svg viewBox="0 0 58 30"><path d="M4 10 L30 14 L54 26"/></svg>
+  <svg viewBox="0 0 58 30"><path d="M4 6 L28 10 L54 24"/></svg>
+  <svg viewBox="0 0 58 30"><path d="M4 24 L30 20 L54 8"/></svg>
+ </div></div>
+ <div class="cbody"><i style="font-size:10.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;font-style:normal;color:#7B2BC9;background:#F3E8FD;border-radius:100px;padding:2px 9px;display:inline-block;margin-bottom:7px">from the workshop</i><b>Pitch Apprenticeship — the nine patterns</b>
+ <span>27 native-speaker clips organized by pattern: march-down, the U, combo
+ punch, final-word rise, list melody, heavy-fall, soft-rise, and more.</span>
+ <div class="tags"><span class="tag" style="background:#FEE8E6;color:#C5221F">9 patterns</span>
+ <span class="tag" style="background:#E6F4EA;color:#188038">native models</span>
+ <span class="tag" style="background:#FEF0E6;color:#B05A00">drills</span></div></div></a>
+</div>
+
+<h2>The practice loop</h2>
+<div class="steps">
+<div class="step"><div class="n" style="background:var(--blue)">1</div><b>Look</b>
+<span>Read the drawn shape — find the hill word and the floor word.</span></div>
+<div class="step"><div class="n" style="background:var(--purple)">2</div><b>Hum</b>
+<span>Hum the contour without words. The shape is the content.</span></div>
+<div class="step"><div class="n" style="background:var(--green)">3</div><b>Shadow</b>
+<span>Loop the clip (⟳) and speak over it, matching hill and floor.</span></div>
+<div class="step"><div class="n" style="background:var(--amber)">4</div><b>Record</b>
+<span>Say it solo, record, and compare against the clip.</span></div>
+<div class="step"><div class="n" style="background:var(--red)">5</div><b>Exaggerate</b>
+<span>Geoff's rule: practice above target — your “too much” lands at native-normal.</span></div>
+</div>
+
+<h2>Reading the pages</h2>
+<div class="terms">
+
+<div class="term"><b><span class="sw" style="background:#EA4335"></span>
+<span class="sw" style="background:#5F6368"></span>
+<span class="sw" style="background:#1A56C4"></span>&ensp;The drawn melody</b>
+<span>Every word is colored and placed by its pitch <i>relative to that speaker's
+own voice</i>: red&nbsp;=&nbsp;high, ink&nbsp;=&nbsp;mid, blue&nbsp;=&nbsp;low —
+and the word physically sits higher or lower on the line. Read a sentence the
+way you'd read sheet music.</span>
+<div class="ex"><span style="position:relative;top:5px;color:#1A56C4">Because</span>
+<span style="position:relative;top:-9px;color:#EA4335;font-weight:700">contrast</span>
+<span style="position:relative;top:1px;color:#5F6368">gives</span>
+<span style="position:relative;top:5px;color:#1A56C4">it</span>
+<span style="position:relative;top:-5px;color:#EA4335">shape.</span>
+&ensp;<i>“contrast” peaks high, “it” sits low</i></div></div>
+
+<div class="term"><b>st — semitones</b>
+<span>The unit of melody: one piano key. <b>12&nbsp;st&nbsp;=&nbsp;one octave.</b>
+A sentence's “sweep” is the distance from its lowest to highest pitch. Flat
+conversational English lives around 5–7&nbsp;st; Geoff's median is 10; his best
+sentences sweep 20+, nearly two octaves.</span>
+<div class="ex">16.8&nbsp;st ≈ an octave and a third — sing do→mi′ on a piano and
+that's the ground this one sentence covers.</div></div>
+
+<div class="term"><b>Hz &amp; note names</b>
+<span>The sweep's actual endpoints as frequency and piano note, so you know
+<i>where</i> the melody lives, not just how wide it is. Geoff's register centers
+near 105&nbsp;Hz (about G2–A2) — an octave below a typical female voice.</span>
+<div class="ex">76–181&nbsp;Hz · D#2→F#3 = from a bass fry bottom up past the
+middle of a male voice. D#2 is near the lowest playable cello note.</div></div>
+
+<div class="term"><b>hill &amp; floor</b>
+<span>The highest and lowest word of the sentence, named so you know exactly
+where to aim the peak and the dive when you shadow it. The number is that
+word's distance from the sentence's own average.</span>
+<div class="ex">hill on “twice.” (+11&nbsp;st) · floor on “this” (−1&nbsp;st) →
+plan the sentence around lifting “twice” one octave.</div></div>
+
+<div class="term"><b>end ±&nbsp;dB — the landing</b>
+<span>How loud the final words arrive compared with the middle of the sentence.
+Positive = the ending <i>holds or grows</i> (authority — nothing tapers);
+negative = the ending decays. Most untrained speech falls off 8–14&nbsp;dB.</span>
+<div class="ex">end&nbsp;+8.2&nbsp;dB = the last word is the strongest thing in
+the sentence · end&nbsp;−12&nbsp;dB = the thought audibly dies out.</div></div>
+
+<div class="term"><b>wpm — pace</b>
+<span>Words per minute for that sentence. The point of the study: pace and
+melody are independent dials — Geoff stays melodic at every speed.</span>
+<div class="ex">130&nbsp;wpm = deliberate teaching · 256 = his median ·
+449 = full sprint, still sweeping 12&nbsp;st.</div></div>
+
+<div class="term"><b>★ model sentence &amp; strength labels</b>
+<span>In the sentence study, each strength (signpost, fry floor, final drop,
+held landing…) is a selectable label. The ★ card is the curated exemplar;
+the rows under it are more of the same move, mined from the whole corpus.</span>
+<div class="ex">Pick “The signpost” → his widest melodies all land on
+transition words like <i>so, okay, let's play this twice</i>.</div></div>
+
+<div class="term"><b>⟳ loop &amp; sorting</b>
+<span>Every clip has a ⟳ loop button for shadow practice; playback speed hides
+in the player's ⋮ menu. The sort bar reorders all sentences by sweep, pace,
+ending strength, highest high, or lowest low.</span>
+<div class="ex">Loop one clip at 0.75× until you can hum its shape, then speak
+over it at full speed.</div></div>
+
+</div>
+<div class="foot">Built from Geoff's Pro Pitch Mastery &amp; Pitch Apprenticeship
+workshops and group coaching sessions · for study within the course community.</div>
+</div>
